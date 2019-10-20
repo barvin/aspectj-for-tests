@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class NavigationSteps {
 
     public static void openRemindersApp() {
-        open("http://localhost:8080");
+        open("http://localhost:8000");
     }
 
 }
