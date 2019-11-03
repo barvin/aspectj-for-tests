@@ -1,0 +1,17 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date %level [%logger{0}]: %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="ReportPortal" class="com.epam.reportportal.logback.appender.ReportPortalAppender">
+        <encoder>
+            <pattern>%level [%logger{0}]: %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ReportPortal"/>
+    </root>
+</configuration>

@@ -27,7 +27,7 @@ public class ReminderSteps {
         reminderUiRow.textInput().shouldHave(value(reminder.getText()));
         reminderUiRow.dateTimeInput().shouldHave(value(
                 reminder.getTime().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm"))));
-        if (reminder.isDone()) {
+        if (reminder.getDone()) {
             reminderUiRow.doneCheckBox().shouldBe(checked);
         } else {
             reminderUiRow.doneCheckBox().shouldNotBe(checked);
@@ -39,7 +39,7 @@ public class ReminderSteps {
         reminderUiRow.textInput().setValue(reminder.getText());
         reminderUiRow.dateTimeInput().setValue(
                 reminder.getTime().format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")));
-        reminderUiRow.doneCheckBox().setSelected(reminder.isDone());
+        reminderUiRow.doneCheckBox().setSelected(reminder.getDone());
         reminderUiRow.updateButton().click();
     }
 
