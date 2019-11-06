@@ -5,7 +5,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +16,7 @@ import static org.apache.commons.lang3.StringUtils.join;
 public class DemoStepActionsAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger("ACTION");
 
-    @Pointcut("withincode(public static * com.example.steps..*Steps.*(..))")
-    void anyStepStatement() {
-    }
-
-    @Before("anyStepStatement()")
+    @Before("withincode(public static * com.example.steps..*Steps.*(..))")
     public void beforeAnyStepStatement(JoinPoint joinPoint) {
         if (joinPoint.getKind().equals(JoinPoint.METHOD_CALL)) {
             Signature signature = joinPoint.getSignature();
