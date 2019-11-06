@@ -22,7 +22,7 @@ public class DemoStepsAspect {
     }
 
     private String getParameters(Signature signature, Object[] args) {
-        StringBuilder result = new StringBuilder("[");
+        StringBuilder result = new StringBuilder(" [");
         for (int i = 0; i < args.length; i++) {
             if (i > 0) {
                 result.append(", ");

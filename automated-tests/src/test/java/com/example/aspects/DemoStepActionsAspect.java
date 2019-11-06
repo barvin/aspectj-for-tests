@@ -28,7 +28,7 @@ public class DemoStepActionsAspect {
         if (args.length == 0) {
             return "";
         }
-        StringBuilder result = new StringBuilder("[");
+        StringBuilder result = new StringBuilder(" [");
         for (int i = 0; i < args.length; i++) {
             if (i > 0) {
                 result.append(", ");
