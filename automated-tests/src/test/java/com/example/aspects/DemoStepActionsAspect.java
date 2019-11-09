@@ -1,6 +1,7 @@
 package com.example.aspects;
 
 import com.codeborne.selenide.SelenideElement;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,6 +9,10 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.apache.commons.lang3.StringUtils.capitalize;
 import static org.apache.commons.lang3.StringUtils.join;
@@ -28,14 +33,10 @@ public class DemoStepActionsAspect {
         if (args.length == 0) {
             return "";
         }
-        StringBuilder result = new StringBuilder(" [");
-        for (int i = 0; i < args.length; i++) {
-            if (i > 0) {
-                result.append(", ");
-            }
-            result.append(((MethodSignature) signature).getParameterNames()[i]).append(" = ").append(args[i]);
-        }
-        return result.append("]").toString();
+        List<String> params = IntStream.range(0, args.length)
+                .mapToObj(i -> ((MethodSignature) signature).getParameterNames()[i] + " = " + args[i])
+                .collect(Collectors.toList());
+        return " [" + StringUtils.join(params, ", ") + "]";
     }
 
     private String getStep(Signature signature) {
