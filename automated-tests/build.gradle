@@ -14,13 +14,13 @@ repositories {
 }
 
 dependencies {
-    compile "org.testng:testng:7.1.0"
+    implementation "org.testng:testng:7.1.0"
     testInpath "com.codeborne:selenide:5.7.0"
-    compile "org.assertj:assertj-core:3.12.2"
-    compile "org.slf4j:slf4j-api:1.7.30"
-    compile "ch.qos.logback:logback-classic:1.2.3"
-    compile "com.epam.reportportal:agent-java-testng:5.0.0-BETA-8"
-    compile "com.epam.reportportal:logger-java-logback:5.0.0-BETA-8"
+    implementation "org.assertj:assertj-core:3.12.2"
+    implementation "org.slf4j:slf4j-api:1.7.30"
+    implementation "ch.qos.logback:logback-classic:1.2.3"
+    implementation "com.epam.reportportal:agent-java-testng:5.0.0-BETA-8"
+    implementation "com.epam.reportportal:logger-java-logback:5.0.0-BETA-8"
 }
 
 compileTestJava {
